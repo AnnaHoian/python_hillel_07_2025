@@ -6,37 +6,37 @@
 
 class Student:
     """
-    class Student contains data about a student and changes their middle score
+    class Student contains data about a student and changes their average score
 
     Attributes:
     name (str) - student name
     surname (str) - student surname
-    middle_score (int) - student middle score
+    average_score (int) - student average score
     age (int) - student age
 
     Methods:
     change_score(new_score):
-     - verifies that student middle score in 1-100 range
-     - updates the middle score
+     - verifies that student average score in 1-100 range
+     - updates the average score
      - prints a message with a new score/error
     """
 
-    def __init__(self, name, surname, middle_score, **kwargs):
+    def __init__(self, name, surname, average_score, **kwargs):
         self.name = name
         self.surname = surname
-        self.middle_score = middle_score
+        self.average_score = average_score
         self.age = kwargs.get('age')
 
     def change_score(self, new_score):
-        self.middle_score = new_score
+        self.average_score = new_score
         if new_score > 0:
             if new_score <= 100:
-                print(f"New student {self.name} middle score is {new_score}")
+                return f"New student {self.name} average score is {new_score}"
             else:
-                print(f"Error: score must be between 1 and 100")
+                return f"Error: score must be between 1 and 100"
         else:
-            print(f"Error: score must be between 1 and 100")
+            return f"Error: score must be between 1 and 100"
 
 student_data = Student("Anna", "Doe", 90, age=25)
-student_data.change_score(95)
+print(student_data.change_score(95))
 
