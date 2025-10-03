@@ -7,6 +7,14 @@
 
 from abc import ABC, abstractmethod
 
+import logging
+logger = logging.getLogger(__name__)
+logging.basicConfig(
+    filename="figure_abc_calculations.log",
+    level = logging.INFO,
+    format = '%(asctime)s - %(module)s - %(funcName)s - %(lineno)d - %(levelname)s - %(message)s'
+)
+
 class Figure(ABC):
     """
     class Figure (abstract)
@@ -37,16 +45,21 @@ class Triangle(Figure):
         - calculate the triangle area
         - calculate the triangle perimeter
     """
-    def __init__(self, **kwargs):
-        self.__side_a = kwargs.get('side_a')
-        self.__side_b = kwargs.get('side_b')
-        self.__side_c = kwargs.get('side_c')
-        self.__length = kwargs.get('length')
-        self.__height = kwargs.get('height')
+    def __init__(self, side_a, side_b, side_c, height=None):
+        # checking the existence of a triangle
+        if not (side_a + side_b > side_c and
+                side_a + side_c > side_b and
+                side_b + side_c > side_a):
+            raise ValueError("Invalid triangle sides")
+        self.__side_a = side_a
+        self.__side_b = side_b
+        self.__side_c = side_c
+        self.__height = height if height else side_a # specify the height, otherwise take the side_a
 
     def area(self):
-        triangle_area = 0.5 * self.__length * self.__height
+        triangle_area = 0.5 * self.__side_a * self.__height
         return triangle_area
+
     def perimeter(self):
         triangle_perimeter = self.__side_a + self.__side_b + self.__side_c
         return triangle_perimeter
@@ -95,7 +108,7 @@ class Rectangle(Figure):
         rectangle_perimeter = 2 * (self.__length + self.__width)
         return rectangle_perimeter
 
-triangle = Triangle(side_a=3, side_b=4, side_c=5, length=3, height=2)
+triangle = Triangle(3, 4, 5, height=2)
 square = Square(4)
 rectangle = Rectangle(5, 3)
 
@@ -103,5 +116,5 @@ figures = triangle, square, rectangle
 
 for calculation in figures:
 
-    print(f"{type(calculation).__name__} area: {calculation.area()}")
-    print(f"{type(calculation).__name__} perimeter: {calculation.perimeter()}")
+    logging.info(f"{type(calculation).__name__} area: {calculation.area()}")
+    logging.info(f"{type(calculation).__name__} perimeter: {calculation.perimeter()}")
