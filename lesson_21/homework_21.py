@@ -1,6 +1,5 @@
 import logging
 from datetime import datetime
-import time
 
 class HeartbeatParser:
     """
@@ -9,9 +8,6 @@ class HeartbeatParser:
     Parameters:
         input_file : str
         Path to the input log file.
-
-        output_file : str
-        Path to the output log file for recording WARNING/ERROR.
 
         key : str
         Key for filtering the lines to be analyzed.
@@ -24,21 +20,16 @@ class HeartbeatParser:
         Loads a file and selects rows with the desired key.
 
         parser_heartbeat():
-        Analyzes the time difference between messages (heartbeat) and writes logs to the output file.
+        Analyzes heartbeat differences between log lines.
+
+        write_results():
+        Writes results to a log file.
     """
 
-    def __init__(self, input_file, output_file, key):
+    def __init__(self, input_file, key):
         self.input_file = input_file
-        self.output_file = output_file
         self.key = key
         self.filtered_log = [] # List of filtered lines in the form (line_number, text).
-
-        # log file configurations
-        logging.basicConfig(
-            filename=self.output_file,
-            level=logging.INFO,
-            format="%(asctime)s - %(levelname)s - %(message)s"
-        )
 
     def load_and_filter(self):
         """
@@ -52,59 +43,72 @@ class HeartbeatParser:
 
     def parse_heartbeat(self):
         """
-        Analyzes heartbeat between lines:
-        - if difference > 31 sec and < 33 sec → WARNING
-        - if difference >= 33 sec → ERROR
+       Analyzes heartbeat differences between log lines.
 
-        Results are written to self.output_file.
+        Returns:
+            list of dicts with fields:
+                - level: "WARNING" or "ERROR"
+                - diff: time difference in seconds
+                - time: timestamp of current line
+                - line: full log line
         """
+        results = []
+        for i in range(1, len(self.filtered_log)):
+            index_previous, line_previous = self.filtered_log[i - 1]
+            index_current, line_current = self.filtered_log[i]
 
-        start_time = time.time()  # to log Execution time info
+            # Extract timestamps
+            time_previous = line_previous[line_previous.find("Timestamp ") + 10
+                                                      : line_previous.find("Timestamp ") + 18]
+            time_current = line_current[line_current.find("Timestamp ") + 10
+                                                      : line_current.find("Timestamp ") + 18]
 
-        # Open the output file for writing (to create it (if doesn't exist))
-        with open(self.output_file, "w") as output_log:
-            for indexes in range(1, len(self.filtered_log)):
-                index_previous, line_previous = self.filtered_log[indexes -1]
-                index_current, line_current = self.filtered_log[indexes]
+            # Convert time to datetime
+            t_previous = datetime.strptime(time_previous, "%H:%M:%S")
+            t_current = datetime.strptime(time_current, "%H:%M:%S")
 
-                # Extract time
-                time_previous = line_previous[line_previous.find("Timestamp ") + 10
-                                                  : line_previous.find("Timestamp ") + 18]
-                time_current = line_current[line_current.find("Timestamp ") + 10
-                                                  : line_current.find("Timestamp ") + 18]
+            # Calculate the difference in seconds
+            sec_diff = (t_previous - t_current).total_seconds()
 
-                # Convert time to datetime
-                t_previous = datetime.strptime(time_previous, "%H:%M:%S")
-                t_current = datetime.strptime(time_current, "%H:%M:%S")
+            # handle midnight crossing
+            if sec_diff < 0:
+                sec_diff += 24 * 60 * 60
 
-                # Calculate the difference in seconds
-                sec_diff = (t_previous - t_current).total_seconds()
+            # Log entry with the type of problem
+            if 31 < sec_diff < 33:
+                results.append({"level": "WARNING", "diff": sec_diff, "time": time_current, "line": line_current})
+            elif sec_diff >= 33:
+                results.append({"level": "ERROR", "diff": sec_diff, "time": time_current, "line": line_current})
 
-                # If the transition is through the north
-                if sec_diff < 0:
-                    sec_diff += 24 * 60 * 60
+        return results
 
-                # Log entry with the type of problem
-                if 31 < sec_diff < 33:
-                    output_log.write(f"WARNING: heartbeat = {sec_diff:.0f} sec at {time_current} "
-                                     f"(line {index_current})\n")
-                elif sec_diff >= 33:
-                    output_log.write(f"ERROR: heartbeat = {sec_diff:.0f} sec at {time_current} "
-                                     f"(line {index_current})\n")
+    def write_results(self, results):
+        """Writes results to the log file"""
+        for entry in results:
+            if entry["level"] == "WARNING":
+                logging.warning(f"Heartbeat = {entry['diff']:0f} sec and {entry['time']} | {entry['line']}")
+            elif entry["level"] == "ERROR":
+                logging.error(f"Heartbeat = {entry['diff']:0f} sec and {entry['time']} | {entry['line']}")
 
-                logging.info(f"Execution time: {time.time() - start_time:.4f} sec")
+if __name__ == '__main__':
 
+    # log file configurations
+    logging.basicConfig(
+        filename="hb_test.log",
+        level=logging.INFO,
+        format="%(asctime)s - %(levelname)s - %(message)s"
+    )
 
-parser = HeartbeatParser(
-    input_file = "hblog.txt",
-    output_file = "hb_test.log",
-    key = "TSTFEED0300|7E3E|0400"
-)
+    parser = HeartbeatParser(
+        input_file = "hblog.txt",
+        key = "TSTFEED0300|7E3E|0400"
+    )
 
-parser.load_and_filter()
-parser.parse_heartbeat()
+    parser.load_and_filter()
+    heartbeat_results = parser.parse_heartbeat()
+    parser.write_results(heartbeat_results)
 
-
+    logging.info(f"Heartbeat analysis complete. Total alerts: {len(heartbeat_results)}")
 
 
 
