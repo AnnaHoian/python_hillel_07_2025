@@ -1,0 +1,6 @@
+2025-10-24 20:51:41,037 - ERROR - Heartbeat = 35.000000 sec and 04:50:42 | { Trade (101, len 36) Queue 0 PriceClass 1 Timestamp 04:50:42 Key TSTFEED0300|7E3E|0400 TradePrice 5 TradeSize 0 }
+2025-10-24 20:51:41,037 - ERROR - Heartbeat = 35.000000 sec and 03:38:36 | { Trade (101, len 36) Queue 0 PriceClass 1 Timestamp 03:38:36 Key TSTFEED0300|7E3E|0400 TradePrice 5 TradeSize 0 }
+2025-10-24 20:51:41,037 - ERROR - Heartbeat = 36.000000 sec and 02:26:30 | { Trade (101, len 36) Queue 0 PriceClass 1 Timestamp 02:26:30 Key TSTFEED0300|7E3E|0400 TradePrice 5 TradeSize 0 }
+2025-10-24 20:51:41,037 - WARNING - Heartbeat = 32.000000 sec and 01:34:38 | { Trade (101, len 36) Queue 0 PriceClass 1 Timestamp 01:34:38 Key TSTFEED0300|7E3E|0400 TradePrice 5 TradeSize 0 }
+2025-10-24 20:51:41,037 - ERROR - Heartbeat = 35.000000 sec and 01:14:23 | { Trade (101, len 36) Queue 0 PriceClass 1 Timestamp 01:14:23 Key TSTFEED0300|7E3E|0400 TradePrice 5 TradeSize 0 }
+2025-10-24 20:51:41,038 - INFO - Heartbeat analysis complete. Total alerts: 5
