@@ -22,10 +22,6 @@ def data():
 
     Base.metadata.create_all(engine)
     with SessionLocal() as session:
-        # if already exists - skip
-        if session.query(Course).first():
-            logging.info("Already exists")
-            return
 
         # Creating courses
         course_programming = Course(name="Python_for_beginners")
@@ -33,6 +29,7 @@ def data():
         course_management = Course(name="PM_introduce")
 
         session.add_all([course_programming, course_db, course_management])
+        session.commit()
 
         # Creating students
         student1 = Student(name="Anna")
@@ -55,17 +52,22 @@ def data():
             student1, student2, student3, student4, student5, student6, student7,student8,
             student9, student10, student11, student12, student13, student14, student15]
         )
+        session.commit()
+
+        # get objects from the database
+        courses_in_db = session.query(Course).all()
+        students_in_db = session.query(Student).all()
 
         # Adding students to courses
         students = session.query(Student).all()
         courses = session.query(Course).all()
 
-        for student in students:
+        for student in students_in_db:
             # random number of courses for each student
-            num_courses = random.randint(1, len(courses))
+            num_courses = random.randint(1, len(courses_in_db))
 
             # random courses without repetitions
-            selected_course = random.sample(courses, num_courses)
+            selected_course = random.sample(courses_in_db, num_courses)
 
             # add a connection
             student.courses.extend(selected_course)
@@ -74,4 +76,5 @@ def data():
         logging.info("Students have been successfully added to random courses")
 
         for s in students:
-            logging.info(f"{s.name} : {s.course_id}")
+            course_titles = [c.name for c in s.courses]
+            logging.info(f"{s.name} : {course_titles}")

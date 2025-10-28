@@ -30,7 +30,7 @@ def get_courses_by_student(student_name: str):
         logging.warning(f"Student {student_name} not found")
         return
     for course in student.courses:
-        logging.info(f"{student_name} has been registered for a {course.course_id} course")
+        logging.info(f"{student_name} has been registered for a {course.name} course")
 
 def update_student_name(student_id: str, new_name: str):
     student = session.query(Student).filter_by(id=student_id).first()
