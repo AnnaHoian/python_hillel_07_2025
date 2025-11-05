@@ -1,0 +1,33 @@
+2025-10-28 20:56:25,713 - INFO - Students have been successfully added to random courses
+2025-10-28 20:56:25,716 - INFO - Anna : ['Python_for_beginners', 'SQL_advance_course', 'PM_introduce']
+2025-10-28 20:56:25,718 - INFO - John : ['Python_for_beginners']
+2025-10-28 20:56:25,720 - INFO - Bob : ['Python_for_beginners']
+2025-10-28 20:56:25,722 - INFO - Jane : ['PM_introduce']
+2025-10-28 20:56:25,723 - INFO - Jack : ['Python_for_beginners', 'SQL_advance_course', 'PM_introduce']
+2025-10-28 20:56:25,725 - INFO - Nick : ['Python_for_beginners', 'SQL_advance_course', 'PM_introduce']
+2025-10-28 20:56:25,728 - INFO - Harry : ['Python_for_beginners', 'PM_introduce']
+2025-10-28 20:56:25,729 - INFO - Ron : ['Python_for_beginners', 'PM_introduce']
+2025-10-28 20:56:25,732 - INFO - Hermione : ['Python_for_beginners', 'SQL_advance_course', 'PM_introduce']
+2025-10-28 20:56:25,734 - INFO - Henry : ['SQL_advance_course', 'PM_introduce']
+2025-10-28 20:56:25,735 - INFO - Jim : ['SQL_advance_course', 'PM_introduce']
+2025-10-28 20:56:25,737 - INFO - Molly : ['Python_for_beginners']
+2025-10-28 20:56:25,739 - INFO - Fred : ['Python_for_beginners']
+2025-10-28 20:56:25,741 - INFO - Ginny : ['SQL_advance_course', 'PM_introduce']
+2025-10-28 20:56:25,742 - INFO - Tom : ['Python_for_beginners', 'SQL_advance_course']
+2025-10-28 20:56:25,747 - INFO - Anna has been registered for a Python_for_beginners course
+2025-10-28 20:56:25,747 - INFO - John has been registered for a Python_for_beginners course
+2025-10-28 20:56:25,747 - INFO - Bob has been registered for a Python_for_beginners course
+2025-10-28 20:56:25,747 - INFO - Jack has been registered for a Python_for_beginners course
+2025-10-28 20:56:25,747 - INFO - Nick has been registered for a Python_for_beginners course
+2025-10-28 20:56:25,747 - INFO - Harry has been registered for a Python_for_beginners course
+2025-10-28 20:56:25,748 - INFO - Ron has been registered for a Python_for_beginners course
+2025-10-28 20:56:25,748 - INFO - Hermione has been registered for a Python_for_beginners course
+2025-10-28 20:56:25,748 - INFO - Molly has been registered for a Python_for_beginners course
+2025-10-28 20:56:25,748 - INFO - Fred has been registered for a Python_for_beginners course
+2025-10-28 20:56:25,748 - INFO - Tom has been registered for a Python_for_beginners course
+2025-10-28 20:56:25,750 - INFO - Anna has been registered for a Python_for_beginners course
+2025-10-28 20:56:25,750 - INFO - Anna has been registered for a SQL_advance_course course
+2025-10-28 20:56:25,750 - INFO - Anna has been registered for a PM_introduce course
+2025-10-28 20:56:25,756 - INFO - Student a93250b6-423b-4625-8d50-75837027ca4a has been updated from Anna to Alice
+2025-10-28 20:56:25,761 - INFO - Course d9191176-60e9-41d4-9789-41b147e06a5a has been updated from Python_for_beginners to Ruby_for_beginners
+2025-10-28 20:56:25,768 - INFO - Student d2af259b-3d8d-441d-abed-dce490076546 has been deleted
