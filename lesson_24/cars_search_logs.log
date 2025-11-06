@@ -1,0 +1,47 @@
+2025-11-05 19:27:39,740 - test_cars_api - INFO - Authentication successful
+2025-11-05 19:27:39,741 - test_cars_api - INFO - Start test: sort_by=price, limit=3
+2025-11-05 19:27:39,746 - test_cars_api - INFO - -Request URL: http://127.0.0.1:8080/cars?sort_by=price&limit=3
+2025-11-05 19:27:39,746 - test_cars_api - INFO - -Request status: 200
+2025-11-05 19:27:39,746 - test_cars_api - INFO - Returned 3 records
+2025-11-05 19:27:39,746 - test_cars_api - INFO - Returned 4 records
+2025-11-05 19:27:39,747 - test_cars_api - INFO - Sorting by price succeeded
+2025-11-05 19:27:39,747 - test_cars_api - INFO - End test: sort_by=price, limit=3
+2025-11-05 19:27:39,749 - test_cars_api - INFO - Start test: sort_by=year, limit=5
+2025-11-05 19:27:39,752 - test_cars_api - INFO - -Request URL: http://127.0.0.1:8080/cars?sort_by=year&limit=5
+2025-11-05 19:27:39,752 - test_cars_api - INFO - -Request status: 200
+2025-11-05 19:27:39,753 - test_cars_api - INFO - Returned 5 records
+2025-11-05 19:27:39,753 - test_cars_api - INFO - Returned 4 records
+2025-11-05 19:27:39,753 - test_cars_api - INFO - Sorting by year succeeded
+2025-11-05 19:27:39,753 - test_cars_api - INFO - End test: sort_by=year, limit=5
+2025-11-05 19:27:39,754 - test_cars_api - INFO - Start test: sort_by=brand, limit=2
+2025-11-05 19:27:39,758 - test_cars_api - INFO - -Request URL: http://127.0.0.1:8080/cars?sort_by=brand&limit=2
+2025-11-05 19:27:39,758 - test_cars_api - INFO - -Request status: 200
+2025-11-05 19:27:39,758 - test_cars_api - INFO - Returned 2 records
+2025-11-05 19:27:39,759 - test_cars_api - INFO - Returned 4 records
+2025-11-05 19:27:39,759 - test_cars_api - INFO - Sorting by brand succeeded
+2025-11-05 19:27:39,759 - test_cars_api - INFO - End test: sort_by=brand, limit=2
+2025-11-05 19:27:39,760 - test_cars_api - INFO - Start test: sort_by=engine_volume, limit=4
+2025-11-05 19:27:39,763 - test_cars_api - INFO - -Request URL: http://127.0.0.1:8080/cars?sort_by=engine_volume&limit=4
+2025-11-05 19:27:39,763 - test_cars_api - INFO - -Request status: 200
+2025-11-05 19:27:39,763 - test_cars_api - INFO - Returned 4 records
+2025-11-05 19:27:39,764 - test_cars_api - INFO - Returned 4 records
+2025-11-05 19:27:39,764 - test_cars_api - INFO - Sorting by engine_volume succeeded
+2025-11-05 19:27:39,764 - test_cars_api - INFO - End test: sort_by=engine_volume, limit=4
+2025-11-05 19:27:39,765 - test_cars_api - INFO - Start test: sort_by=price, limit=1
+2025-11-05 19:27:39,768 - test_cars_api - INFO - -Request URL: http://127.0.0.1:8080/cars?sort_by=price&limit=1
+2025-11-05 19:27:39,769 - test_cars_api - INFO - -Request status: 200
+2025-11-05 19:27:39,769 - test_cars_api - INFO - Returned 1 records
+2025-11-05 19:27:39,769 - test_cars_api - INFO - Returned 4 records
+2025-11-05 19:27:39,769 - test_cars_api - INFO - Sorting by price succeeded
+2025-11-05 19:27:39,770 - test_cars_api - INFO - End test: sort_by=price, limit=1
+2025-11-05 19:27:39,771 - test_cars_api - INFO - Start test: sort_by=price, limit=0
+2025-11-05 19:27:39,774 - test_cars_api - INFO - -Request URL: http://127.0.0.1:8080/cars?sort_by=price&limit=0
+2025-11-05 19:27:39,774 - test_cars_api - INFO - -Request status: 200
+2025-11-05 19:27:39,775 - test_cars_api - INFO - Returned 0 records
+2025-11-05 19:27:39,775 - test_cars_api - INFO - End test: sort_by=price, limit=0
+2025-11-05 19:27:39,776 - test_cars_api - INFO - Start test: sort_by=invalid_field, limit=3
+2025-11-05 19:27:39,780 - test_cars_api - INFO - -Request URL: http://127.0.0.1:8080/cars?sort_by=invalid_field&limit=3
+2025-11-05 19:27:39,780 - test_cars_api - INFO - -Request status: 200
+2025-11-05 19:27:39,780 - test_cars_api - INFO - Returned 3 records
+2025-11-05 19:27:39,780 - test_cars_api - INFO - Returned 4 records
+2025-11-05 19:27:39,780 - test_cars_api - INFO - End test: sort_by=invalid_field, limit=3
