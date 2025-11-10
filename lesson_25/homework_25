@@ -1,0 +1,154 @@
+Locators for:
+    https://qauto2.forstudy.space/
+    login - guest
+    pass - welcome2qauto
+File format:
+    №
+    element title
+    XPATH Locator
+    CSS Locator
+
+1.
+button header logo "Hillel auto"
+//header//a[contains(@class, 'header_logo')]
+div .header_logo
+
+2.
+button Home
+//button[text()='Home']
+.btn.header-link.-active
+div .btn.header-link:first-child
+
+3.
+button Contacts
+//button[text()='Contacts']
+div .btn.header-link:nth-child(2)
+
+4.
+button About
+//button[text()='About']
+div .btn.header-link:nth-child(3)
+
+5.
+button Guest log in
+//button[text()='Guest log in']
+.header-link.-guest:first-child
+
+6.
+button Sign up
+//button[text()='Sign up']
+.btn.btn-outline-white.header_signin
+
+7.
+title "Do more"
+//h1[text()='Do more!']
+.hero-descriptor_title.display-2
+
+8.
+description "Do more"
+//p[contains(@class, 'hero-descriptor_descr lead')]
+.hero-descriptor_descr.lead
+
+9.
+"Fuel expenses" image
+//div[contains(@class, 'col-12') and contains(@class, 'col-lg-6')
+                     and not(contains(@class, 'mt-lg-0'))]//img[contains(@class, 'about-picture_img')]
+img.about-picture_img[src*="info_1.jpg"]
+
+10.
+"Instructions" image
+//div[contains(@class, 'col-12') and contains(@class, 'col-lg-6')
+        and contains(@class, 'mt-lg-0')]//img[contains(@class, 'about-picture_img')]
+img.about-picture_img[src*="info_2.jpg"]
+
+11.
+title "Log fuel expenses"
+//div[contains(@class, 'col-12') and contains(@class, 'col-lg-6')
+        and not(contains(@class, 'mt-lg-0'))]//p[contains(@class, 'about-block_title h2')]
+#aboutSection > div > div > div:first-child .about-block_title.h2
+
+12.
+description "Log fuel expenses"
+//div[contains(@class, 'col-12') and contains(@class, 'col-lg-6')
+        and not(contains(@class, 'mt-lg-0'))]//p[contains(@class, 'about-block_descr lead')]
+#aboutSection > div > div > div:first-child .about-block_descr.lead
+
+13.
+title "Instructions and manuals"
+//div[contains(@class, 'col-12') and contains(@class, 'col-lg-6')
+        and contains(@class, 'mt-lg-0')]//p[contains(@class, 'about-block_title h2')]
+#aboutSection > div > div > div:last-child .about-block_title.h2
+
+14.
+description "Instructions and manuals"
+//div[contains(@class, 'col-12') and contains(@class, 'col-lg-6')
+        and contains(@class, 'mt-lg-0')]//p[contains(@class, 'about-block_descr lead')]
+#aboutSection > div > div > div:last-child .about-block_descr.lead
+
+15.
+/panel page
+Garage header button
+//a[contains(@routerlink, 'garage') and contains(@class, 'header-link')]
+.btn.header-link[href="/panel/garage"]
+
+16.
+/panel page
+Fuel expenses header button
+//a[contains(@routerlink, 'expenses') and contains(@class, 'header-link')]
+.btn.header-link[href="/panel/expenses"]
+
+17.
+/panel page
+Instructions header button
+//a[contains(@routerlink, 'instructions') and contains(@class, 'header-link')]
+.btn.header-link[href="/panel/instructions"]
+
+/panel page
+Garage sidebar
+/a[contains(@routerlink, 'garage') and contains(@class, 'sidebar_btn')]
+.btn-sidebar[href="/panel/garage"]
+
+19.
+/panel page
+Fuel expenses sidebar
+//a[contains(@routerlink, 'expenses') and contains(@class, 'sidebar_btn')]
+.btn-sidebar[href="/panel/expenses"]
+
+20.
+/panel page
+Instructions sidebar
+//a[contains(@routerlink, 'instructions') and contains(@class, 'sidebar_btn')]
+.btn-sidebar[href="/panel/instructions"]
+
+21.
+/panel page
+Log out button
+//span[contains(@class, 'icon-logout')]
+.btn-link.text-danger.btn-sidebar
+
+22.
+/panel/garage page
+Add a car button
+//button[contains(@class, 'btn-primary') and text()='Add car']
+app-garage .panel-page_heading h1
+
+
+23.
+/panel/expenses page
+Add an expense button
+//button[contains(@class, 'btn-primary') and text()='Add an expense']
+.item-group .btn-primary
+
+24.
+/panel/instructions page
+Search button
+//button[contains(@class, 'btn-primary') and text()='Search']
+.instructions-search-controls .instructions-search-controls_search
+
+25.
+/panel/garage page
+My profile menu
+//button[contains(@id, 'userNavDropdown')]
+#userNavDropdown
+
+
