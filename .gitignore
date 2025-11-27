@@ -209,3 +209,4 @@ __marimo__/
 # my local data
 .idea/
 study_lessons/
+/lesson_22/students_project/test.py
